@@ -3,28 +3,35 @@
 ## 📌 Project Overview
 This repository contains an end-to-end Data Science project completed as part of the **GCI World 2026 Final Assignment** (Matsuo-Iwasawa Lab, The University of Tokyo). 
 
-The project focuses on predicting customer churn in the telecom industry using Machine Learning and translating those predictions into a highly actionable, AI-driven business proposal to reduce revenue loss.
+The project focuses on predicting customer churn in the telecom industry using Machine Learning and translating those predictions into a highly actionable, AI-driven business proposal to reduce revenue loss. It demonstrates the complete data science lifecycle: from raw data exploration to model training and strategic business translation.
+
+## 👨‍💻 About the Author
+**Emanuel Thomas William**  
+*Electronics Engineering Student | University of Dar es Salaam (UDSM)*
+
+I am an Electronics Engineering student at UDSM with a profound passion for Artificial Intelligence and Machine Learning. I am deeply fascinated by how data can be leveraged to solve complex real-world problems and drive business growth. This project represents my commitment to bridging the gap between hardware engineering, software data analysis, and strategic business solutions.
 
 ## 🎯 Business Problem
 In the telecom industry, every customer who leaves is lost revenue. Providers often react only *after* a customer has left, and retention offers are frequently untargeted. 
 
 **The Goal:** To build a Machine Learning model that can identify which customers are at high risk of churning *before* they leave, allowing the retention team to take proactive, targeted action.
 
-## 📊 Dataset
+## 📊 Dataset & Data Usage Warning
 The model was trained on a merged dataset containing **100,000 customers** and **100 features**.
 *   **Client Data:** Demographics, income, marital status, handset price, equipment age.
 *   **Record Data:** Usage, billing, revenue, minutes of use, dropped calls.
 *   **Target Variable:** `churn` (1 = customer left, 0 = customer stayed). The dataset was perfectly balanced (approx. 50% churn rate).
 
-*(Note: The original `Client.csv` and `Record.csv` files are NOT included in this repository due to data privacy and course policies.)*
+> ⚠️ **DATA USAGE WARNING:** 
+> The `Client.csv` and `Record.csv` datasets are included in this repository **strictly for educational and academic purposes**. If you are using this data, please ensure it is for learning, research, or academic projects only. Do not use this data for commercial purposes or malicious intent. 
 
 ## 🛠️ Methodology & Tools
-1.  **Exploratory Data Analysis (EDA):** Identified distributions and correlations in usage and revenue data.
+1.  **Exploratory Data Analysis (EDA):** Identified distributions and correlations in usage and revenue data to uncover hidden patterns.
 2.  **Data Preparation:** 
     *   Dropped identifiers (`Customer_ID`).
     *   Removed sparse columns (>40% missing values).
     *   Imputed remaining missing values (Median for numeric, 'Unknown' for categorical).
-    *   Label Encoded categorical variables.
+    *   Label Encoded categorical variables for model compatibility.
 3.  **Machine Learning Model:** 
     *   **Algorithm:** Random Forest Classifier (100 trees, max depth 15).
     *   **Train/Test Split:** 80% Training / 20% Testing (Stratified).
@@ -32,7 +39,7 @@ The model was trained on a merged dataset containing **100,000 customers** and *
 
 ## 📈 Model Performance
 *   **Accuracy:** 62.1%
-*   **ROC-AUC Score:** 0.674 (Better than random guessing)
+*   **ROC-AUC Score:** 0.674 (Significantly better than random guessing)
 *   **Precision (Churn):** 0.61
 *   **Recall (Churn):** 0.64 (Successfully identified 64% of actual churners).
 
@@ -53,6 +60,9 @@ Based on the model's insights, I proposed an **AI-Powered Proactive Retention Sy
 ```text
 ├── README.md                  # Project overview and documentation
 ├── requirements.txt           # Python dependencies
+├── data/
+│   ├── Client.csv             # Customer demographic data
+│   └── Record.csv             # Customer usage and billing data
 ├── notebooks/
 │   └── churn_prediction.ipynb # Complete Jupyter Notebook (EDA, Prep, Model)
 ├── presentations/
